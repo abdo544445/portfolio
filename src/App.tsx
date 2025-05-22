@@ -1,7 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 import { useEffect } from 'react';
-import { analytics } from './firebase/config';
-import { logEvent } from 'firebase/analytics';
+import { analytics, logEvent } from './firebase/config';
 import { useTheme } from './context/ThemeContext';
 
 // Layouts
@@ -18,13 +17,13 @@ import ContactPage from './pages/ContactPage';
 import NotFoundPage from './pages/NotFoundPage';
 
 // Admin Pages
-//import AdminDashboard from './pages/admin/Dashboard'; // Corrected path
-//import AdminProjects from './pages/admin/Projects'; // Corrected path
-//import AdminSkills from './pages/admin/Skills'; // Corrected path
-//import AdminResearch from './pages/admin/Research'; // Corrected path
-//import AdminBlog from './pages/admin/Blog'; // Corrected path
-//import AdminContact from './pages/admin/Contact'; // Corrected path
-//import Login from './pages/Login'; // Corrected path
+import AdminDashboard from './pages/admin/Dashboard';
+import AdminProjects from './pages/admin/Projects';
+import AdminSkills from './pages/admin/Skills';
+import AdminResearch from './pages/admin/Research';
+import AdminBlog from './pages/admin/Blog';
+import AdminContact from './pages/admin/Contact';
+import Login from './pages/Login';
 
 // Protected Route
 import ProtectedRoute from './components/ProtectedRoute';

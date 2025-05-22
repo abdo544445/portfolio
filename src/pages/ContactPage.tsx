@@ -191,6 +191,9 @@ const CardLink = styled.a`
 const ContactPage = () => {
   const [state, handleSubmit] = useForm("xpwdnvwq");
   const [formError, setFormError] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [success, setSuccess] = useState<string | null>(null);
   
   const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
