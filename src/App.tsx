@@ -3,7 +3,6 @@ import { useEffect } from 'react';
 import { analytics } from './firebase/config';
 import { logEvent } from 'firebase/analytics';
 import { useTheme } from './context/ThemeContext';
-import { useAuth } from './context/AuthContext';
 
 // Layouts
 import MainLayout from './components/layout/MainLayout';
@@ -15,25 +14,23 @@ import ProjectsPage from './pages/ProjectsPage';
 import ProjectDetailPage from './pages/ProjectDetailPage';
 import ResearchPage from './pages/ResearchPage';
 import BlogPage from './pages/BlogPage';
-import BlogPostPage from './pages/BlogPostPage';
 import ContactPage from './pages/ContactPage';
 import NotFoundPage from './pages/NotFoundPage';
 
 // Admin Pages
-import AdminDashboard from './admin/Dashboard';
-import AdminProjects from './admin/Projects';
-import AdminSkills from './admin/Skills';
-import AdminResearch from './admin/Research';
-import AdminBlog from './admin/Blog';
-import AdminContact from './admin/Contact';
-import Login from './pages/Login';
+//import AdminDashboard from './pages/admin/Dashboard'; // Corrected path
+//import AdminProjects from './pages/admin/Projects'; // Corrected path
+//import AdminSkills from './pages/admin/Skills'; // Corrected path
+//import AdminResearch from './pages/admin/Research'; // Corrected path
+//import AdminBlog from './pages/admin/Blog'; // Corrected path
+//import AdminContact from './pages/admin/Contact'; // Corrected path
+//import Login from './pages/Login'; // Corrected path
 
 // Protected Route
 import ProtectedRoute from './components/ProtectedRoute';
 
 function App() {
   const { theme } = useTheme();
-  const { user } = useAuth();
 
   useEffect(() => {
     // Log page view to analytics
@@ -50,7 +47,6 @@ function App() {
           <Route path="projects/:slug" element={<ProjectDetailPage />} />
           <Route path="research" element={<ResearchPage />} />
           <Route path="blog" element={<BlogPage />} />
-          <Route path="blog/:slug" element={<BlogPostPage />} />
           <Route path="contact" element={<ContactPage />} />
           <Route path="login" element={<Login />} />
           <Route path="*" element={<NotFoundPage />} />

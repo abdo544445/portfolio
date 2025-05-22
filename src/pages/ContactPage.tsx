@@ -192,22 +192,22 @@ const ContactPage = () => {
   const [state, handleSubmit] = useForm("xpwdnvwq");
   const [formError, setFormError] = useState("");
   
-  const handleFormSubmit = (e: React.FormEvent) => {
+  const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    
-    // Get form data
-    const formData = new FormData(e.target as HTMLFormElement);
-    const name = formData.get('name') as string;
-    const email = formData.get('email') as string;
-    const message = formData.get('message') as string;
-    
-    // Basic validation
-    if (!name.trim() || !email.trim() || !message.trim()) {
+    setLoading(true);
+    setError(null);
+    setSuccess(null);
+
+    const formData = new FormData(e.currentTarget); // Changed e.target to e.currentTarget
+    const data = Object.fromEntries(formData.entries());
+
+    // Basic client-side validation
+    if (!data.name || !data.email || !data.message) {
       setFormError("All fields are required");
       return;
     }
     
-    if (!email.includes('@') || !email.includes('.')) {
+    if (typeof data.email === 'string' && (!data.email.includes('@') || !data.email.includes('.'))) {
       setFormError("Please enter a valid email address");
       return;
     }
