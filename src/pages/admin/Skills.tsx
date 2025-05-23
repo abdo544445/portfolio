@@ -146,7 +146,7 @@ const AdminSkills: React.FC = () => {
     try {
       const skillsCollection = collection(db, 'skills');
       const skillsSnapshot = await getDocs(skillsCollection);
-      const skillsList = skillsSnapshot.docs.map(doc => ({
+      const skillsList = skillsSnapshot.docs.map((doc: any) => ({
         id: doc.id,
         ...doc.data()
       })) as Skill[];

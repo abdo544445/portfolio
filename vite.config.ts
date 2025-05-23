@@ -12,7 +12,6 @@ export default defineConfig({
       '@pages': path.resolve(__dirname, './src/pages'),
       '@admin': path.resolve(__dirname, './src/admin'),
       '@context': path.resolve(__dirname, './src/context'),
-      '@firebase': path.resolve(__dirname, './src/firebase'),
       '@hooks': path.resolve(__dirname, './src/hooks'),
       '@styles': path.resolve(__dirname, './src/styles'),
       '@types': path.resolve(__dirname, './src/types'),

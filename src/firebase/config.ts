@@ -1,6 +1,6 @@
 // src/firebase/config.ts
 import { initializeApp } from 'firebase/app';
-import { getAuth, GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
+import { getAuth, GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup, onAuthStateChanged, signOut } from 'firebase/auth';
 import { getFirestore, collection, doc, getDocs, addDoc, updateDoc, deleteDoc } from 'firebase/firestore';
 import { getStorage, ref, uploadBytes, getDownloadURL, deleteObject } from 'firebase/storage';
 import { getAnalytics, logEvent } from 'firebase/analytics';
@@ -43,6 +43,8 @@ export {
   deleteObject,
   signInWithEmailAndPassword,
   signInWithPopup,
-  logEvent
+  logEvent,
+  onAuthStateChanged,
+  signOut
 };
 

@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { db, storage } from '../../firebase/config';
-import { collection, getDocs, doc, addDoc, updateDoc, deleteDoc } from 'firebase/firestore';
-import { ref, uploadBytes, getDownloadURL, deleteObject } from 'firebase/storage';
+import { db, storage, collection, getDocs, doc, addDoc, updateDoc, deleteDoc, ref, uploadBytes, getDownloadURL, deleteObject } from '../../firebase/config';
 import styled from 'styled-components';
 
 const ResearchContainer = styled.div`
@@ -153,13 +151,13 @@ const AdminResearch: React.FC = () => {
   useEffect(() => {
     fetchResearch();
   }, []);
-  
+
   const fetchResearch = async () => {
     setLoading(true);
     try {
       const researchCollection = collection(db, 'research');
       const researchSnapshot = await getDocs(researchCollection);
-      const researchList = researchSnapshot.docs.map(doc => ({
+      const researchList = researchSnapshot.docs.map((doc: any) => ({
         id: doc.id,
         ...doc.data()
       })) as Research[];

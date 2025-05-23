@@ -156,7 +156,7 @@ const AdminBlog: React.FC = () => {
     try {
       const blogCollection = collection(db, 'blog');
       const blogSnapshot = await getDocs(blogCollection);
-      const blogList = blogSnapshot.docs.map(doc => ({
+      const blogList = blogSnapshot.docs.map((doc: any) => ({
         id: doc.id,
         ...doc.data()
       })) as BlogPost[];
