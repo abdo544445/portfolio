@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { auth, googleProvider } from '../firebase/config';
-import { signInWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
+import { auth, googleProvider, signInWithEmailAndPassword, signInWithPopup } from '../firebase/config';
 import styled from 'styled-components';
 
 const LoginContainer = styled.div`

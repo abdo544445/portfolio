@@ -33,7 +33,11 @@ function App() {
 
   useEffect(() => {
     // Log page view to analytics
-    logEvent(analytics, 'page_view');
+    try {
+      logEvent(analytics, 'page_view');
+    } catch (error) {
+      console.log('Analytics error:', error);
+    }
   }, []);
 
   return (

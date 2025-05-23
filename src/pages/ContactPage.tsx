@@ -191,17 +191,11 @@ const CardLink = styled.a`
 const ContactPage = () => {
   const [state, handleSubmit] = useForm("xpwdnvwq");
   const [formError, setFormError] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
-  const [success, setSuccess] = useState<string | null>(null);
   
   const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setLoading(true);
-    setError(null);
-    setSuccess(null);
 
-    const formData = new FormData(e.currentTarget); // Changed e.target to e.currentTarget
+    const formData = new FormData(e.currentTarget);
     const data = Object.fromEntries(formData.entries());
 
     // Basic client-side validation

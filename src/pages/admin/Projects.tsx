@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { db, storage } from '../../firebase/config';
-import { collection, getDocs, doc, addDoc, updateDoc, deleteDoc } from 'firebase/firestore';
-import { ref, uploadBytes, getDownloadURL, deleteObject } from 'firebase/storage';
+import { collection, getDocs, doc, addDoc, updateDoc, deleteDoc } from '../../firebase/config';
+import { ref, uploadBytes, getDownloadURL, deleteObject } from '../../firebase/config';
 import styled from 'styled-components';
 
 const ProjectsContainer = styled.div`
@@ -159,9 +159,9 @@ const AdminProjects: React.FC = () => {
     try {
       const projectsCollection = collection(db, 'projects');
       const projectsSnapshot = await getDocs(projectsCollection);
-      const projectsList = projectsSnapshot.docs.map(doc => ({
-        id: doc.id,
-        ...doc.data()
+      const projectsList = projectsSnapshot.docs.map((docItem: any) => ({
+        id: docItem.id,
+        ...docItem.data()
       })) as Project[];
       
       setProjects(projectsList);
