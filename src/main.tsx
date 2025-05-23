@@ -10,7 +10,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <ThemeProvider>
       <AuthProvider>
-        <Router>
+        <Router basename="/portfolio">
           <GlobalStyles />
           <App />
         </Router>
